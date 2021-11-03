@@ -2,4 +2,5 @@
 .jpb
 target
 
-dataBase.mv.db
+*.mv.db
+*.cfg.xml
