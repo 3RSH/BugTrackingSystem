@@ -30,6 +30,10 @@ public class Project {
   private String name;
 
   @Getter
-  @OneToMany(mappedBy = "project", cascade = jakarta.persistence.CascadeType.ALL)
+  @Setter
+  @OneToMany(
+      fetch = jakarta.persistence.FetchType.EAGER,
+      mappedBy = "project",
+      cascade = jakarta.persistence.CascadeType.ALL)
   private List<Task> tasks;
 }

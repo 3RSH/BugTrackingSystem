@@ -30,10 +30,10 @@ public class User {
   private String name;
 
   @Getter
-  @OneToMany(mappedBy = "user", cascade = jakarta.persistence.CascadeType.ALL)
+  @Setter
+  @OneToMany(
+      fetch = jakarta.persistence.FetchType.EAGER,
+      mappedBy = "user",
+      cascade = jakarta.persistence.CascadeType.ALL)
   private List<Task> tasks;
-
-  public User(String name) {
-    this.name = name;
-  }
 }

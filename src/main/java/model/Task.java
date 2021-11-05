@@ -50,7 +50,7 @@ public class Task {
 
   @Getter
   @Setter
-  @ManyToOne(optional = false)
+  @ManyToOne(fetch = jakarta.persistence.FetchType.LAZY, optional = false)
   @JoinColumn(name = "user_id", nullable = false)
   private User user;
 

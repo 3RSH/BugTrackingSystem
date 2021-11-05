@@ -2,20 +2,20 @@ package dao;
 
 import java.io.File;
 import java.util.List;
-import model.User;
+import model.Task;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class UserDao implements Dao<User, Integer> {
+public class TaskDao implements Dao<Task, Integer> {
 
   private final File dbConfig;
 
   private Session currentSession;
   private Transaction currentTransaction;
 
-  public UserDao(File dbConfig) {
+  public TaskDao(File dbConfig) {
     this.dbConfig = dbConfig;
   }
 
@@ -44,22 +44,22 @@ public class UserDao implements Dao<User, Integer> {
 
 
   @Override
-  public List<User> findAll() {
-    return currentSession.createQuery("from User", User.class).list();
+  public List<Task> findAll() {
+    return currentSession.createQuery("from Task", Task.class).list();
   }
 
   @Override
-  public void persist(User entity) {
+  public void persist(Task entity) {
     currentSession.save(entity);
   }
 
   @Override
-  public User findById(Integer integer) {
-    return currentSession.get(User.class, integer);
+  public Task findById(Integer integer) {
+    return currentSession.get(Task.class, integer);
   }
 
   @Override
-  public void delete(User entity) {
+  public void delete(Task entity) {
     currentSession.delete(entity);
   }
 }

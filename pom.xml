@@ -15,6 +15,7 @@
     <h2.version>1.4.200</h2.version>
     <hibernate.version>6.0.0.Beta1</hibernate.version>
     <lombok.version>1.18.22</lombok.version>
+    <log4j.version>2.14.1</log4j.version>
   </properties>
 
   <dependencies>
@@ -39,6 +40,13 @@
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
       <scope>provided</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j.version}</version>
     </dependency>
   </dependencies>
 </project>

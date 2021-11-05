@@ -2,20 +2,20 @@ package dao;
 
 import java.io.File;
 import java.util.List;
-import model.User;
+import model.Project;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class UserDao implements Dao<User, Integer> {
+public class ProjectDao implements Dao<Project, Integer> {
 
   private final File dbConfig;
 
   private Session currentSession;
   private Transaction currentTransaction;
 
-  public UserDao(File dbConfig) {
+  public ProjectDao(File dbConfig) {
     this.dbConfig = dbConfig;
   }
 
@@ -44,22 +44,22 @@ public class UserDao implements Dao<User, Integer> {
 
 
   @Override
-  public List<User> findAll() {
-    return currentSession.createQuery("from User", User.class).list();
+  public List<Project> findAll() {
+    return currentSession.createQuery("from Project", Project.class).list();
   }
 
   @Override
-  public void persist(User entity) {
+  public void persist(Project entity) {
     currentSession.save(entity);
   }
 
   @Override
-  public User findById(Integer integer) {
-    return currentSession.get(User.class, integer);
+  public Project findById(Integer integer) {
+    return currentSession.get(Project.class, integer);
   }
 
   @Override
-  public void delete(User entity) {
+  public void delete(Project entity) {
     currentSession.delete(entity);
   }
 }

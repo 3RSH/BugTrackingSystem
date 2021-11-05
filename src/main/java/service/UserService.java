@@ -27,5 +27,16 @@ public class UserService {
     userDao.closeCurrentSessionWithTransaction();
   }
 
+  public User findById(Integer id) {
+    userDao.openCurrentSession();
+    User user = userDao.findById(id);
+    userDao.closeCurrentSession();
+    return user;
+  }
 
+  public void delete(User user) {
+    userDao.openCurrentSessionWithTransaction();
+    userDao.delete(user);
+    userDao.closeCurrentSessionWithTransaction();
+  }
 }
