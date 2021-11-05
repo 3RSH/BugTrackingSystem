@@ -46,6 +46,7 @@ public class Task {
   @Getter
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
+
   private Priority priority;
 
   @Getter

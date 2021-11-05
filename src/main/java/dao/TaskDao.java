@@ -30,6 +30,7 @@ public class TaskDao implements Dao<Task, Integer> {
 
   public void closeCurrentSession() {
     currentSession.close();
+    currentSession.getSessionFactory().close();
   }
 
   public void openCurrentSessionWithTransaction() {
@@ -40,6 +41,7 @@ public class TaskDao implements Dao<Task, Integer> {
   public void closeCurrentSessionWithTransaction() {
     currentTransaction.commit();
     currentSession.close();
+    currentSession.getSessionFactory().close();
   }
 
 

@@ -1,6 +1,7 @@
 .idea
 .jpb
 target
+out
 
 *.mv.db
 *.trace.db
